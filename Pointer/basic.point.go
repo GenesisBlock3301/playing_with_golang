@@ -9,7 +9,7 @@ func zero(x *int){
 }
 
 func main(){
-	x := 5
+	x := 9
 	zero(&x)
 	fmt.Println((x))
 }
