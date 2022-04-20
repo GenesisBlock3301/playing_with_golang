@@ -10,5 +10,5 @@ func main(){
 	slice2 := slice[:0]
 	printSlice(slice2)
 	delete := append(slice[:2],slice[2+1:]...)
-	fmt.Println("Deleted array: ", delete)
+	fmt.Println("Deleted array:  ", delete)
 }
