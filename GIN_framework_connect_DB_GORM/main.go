@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"bookweb/controllers"
+	"bookweb/middlewares"
 	"bookweb/models"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -16,7 +18,10 @@ func main() {
 		v1.GET("/books/:id",controllers.FindBook)
 		v1.PUT("/books/:id",controllers.UpdateBook)
 		v1.DELETE("/books/:id",controllers.DeleteBook)
+		v1.POST("/register",controllers.Register)
+		v1.POST("/login",controllers.Login)
+		v1.GET("/user",middleware.JWTAuthMiddleware(),controllers.CurrentUser)
 	}
-	// r.GET("/books",controllers.FindBooks)
+	
 	r.Run()
 }
