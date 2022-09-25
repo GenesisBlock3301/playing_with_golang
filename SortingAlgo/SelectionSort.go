@@ -4,22 +4,22 @@ import (
 	"fmt"
 )
 
-func selection(arr []int) []int{
+func selection(arr []int) []int {
 	n := len(arr)
-	for i := 0;i < n-1; i++{
-		index_min := i
-		for j:=i+1; j<n;j++{
-			if arr[j] < arr[index_min]{
-				index_min = j
+	for i := 0; i < n-1; i++ {
+		indexMin := i
+		for j := i + 1; j < n; j++ {
+			if arr[j] < arr[indexMin] {
+				indexMin = j
 			}
 		}
-		if (index_min != i){
-			arr[i],arr[index_min] = arr[index_min],arr[i]
+		if indexMin != i {
+			arr[i], arr[indexMin] = arr[indexMin], arr[i]
 
 		}
 	}
 	return arr
-	 
+
 }
 
 func main() {
@@ -30,6 +30,6 @@ func main() {
 	for i := 0; i < size; i++ {
 		fmt.Scanf("%d", &arr[i])
 	}
-	fmt.Println("Sorted array: ",selection(arr))
+	fmt.Println("Sorted array: ", selection(arr))
 
 }
