@@ -10,12 +10,14 @@ func virtualMachine(program []string) {
 	// `stackPointer` manage the stack
 	var programCounter, stackPointer int
 	stack := make([]int, len(program))
-
+	const PUSH = "PUSH"
+	const ADD = "ADD"
+	const MINUS = "MINUS"
 	for programCounter < len(program) {
 		currentInstruction := program[programCounter]
 
 		switch currentInstruction {
-		case "PUSH":
+		case PUSH:
 			val := program[programCounter+1]
 			value, err := strconv.Atoi(val)
 			if err != nil {
@@ -24,14 +26,14 @@ func virtualMachine(program []string) {
 			stack[stackPointer] = value
 			stackPointer++
 			programCounter++
-		case "ADD":
+		case ADD:
 			right := stack[stackPointer-1]
 			stackPointer--
 			left := stack[stackPointer-1]
 			stackPointer--
 			stack[stackPointer] = left + right
 			stackPointer++
-		case "MINUS":
+		case MINUS:
 			right := stack[stackPointer-1]
 			stackPointer--
 			left := stack[stackPointer-1]
